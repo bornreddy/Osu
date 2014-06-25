@@ -54,3 +54,6 @@ tramp
 
 # AUCTeX auto folder
 /auto/
+
+connect.sh
+osu.pem

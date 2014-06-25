@@ -1,1 +1,1 @@
-ssh -i <.pem> ubuntu@<ip>
+ssh -i osu.pem ubuntu@54.82.3.172
