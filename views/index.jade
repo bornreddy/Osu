@@ -1,13 +1,12 @@
 extends layout
 
 block content
-  //- h1.text-center Osu
-
+  h1=title
   div.container
   div.content
   div.well
-    form(name="input", action="/input", method="post")
+    form(name="input_username", action="/input_username", method="post")
         p
-          input(type="text", name="username", class="form-control", placeholder="username")
+          input(type="text", name="username", class="form-control", placeholder="enter username")
         p
           input(type="submit", value="Submit", class="btn btn-primary")
