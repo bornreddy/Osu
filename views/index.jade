@@ -2,4 +2,13 @@ extends layout
 
 block content
   h1= title
-  p Welcome to #{title}
+  h1.text-center Osu
+  
+  div.container
+  div.content
+  div.well
+    form(name="input", action="/input", method="post")
+        p
+          input(type="text", name="username", class="form-control", placeholder="username")
+        p
+          input(type="submit", value="Submit", class="btn btn-primary")
