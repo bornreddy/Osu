@@ -1,18 +1,19 @@
+var crypto = require('crypto')
+
 exports.show_qr = function(req,res) {
-	//get the username and show a qr from a generated hash run through str2qr. 
+	//get the username and generate a hash 
 	//add the qr hash to mongo under a list of "pending hash for approval"
-	//the strings should only be valid for two minutes -- mongod ttl 
-	//render the page with the username
-	username = req.body.input_username
-	console.log(username)
+	//the strings should only be valid for two minutes -- mongod ttl
+	//send the qr hash to the client-side javascript to render it there. res.send()
+	username = req.body.input_username;
+	console.log(username);
 	res.render('qr', { title: 'qr.jade' });
-	res.end()
+	var qr_hash = crypto.randomBytes(200).toString('hex');
+	console.log(qr_hash)
+	res.send(qr_hash)
+	res.end();
 }
 
-var str2qr = function() {
-  //given a random hash string, generate the qr code and render to the screen	
-
-}
 
 exports.phone_info = function(req,res) {
 	//get the username
