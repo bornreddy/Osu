@@ -32,6 +32,7 @@ exports.add_hash= function(name,validation_hash, callback) {
 };
 
 
+
 //get userhash from username
 //get pending hashes from username
 //add a pending hash to a username
