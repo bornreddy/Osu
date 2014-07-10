@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  h1=title
+  div.container
+  div.content
+  div.well
+  h3 Test Existant
+    form(name="test_existant", action="/test_existant", method="post")
+          input(type="text", name="existant_username", class="form-control", placeholder="existant_username")
+          input(type="text", name="existant_userhash", class="form-control", placeholder="existant_userhash")
+          input(type="text", name="matchhash", class="form-control", placeholder="matchhash")
+          input(type="submit", value="test_existant", class="btn btn-primary")
+  p
+  h3 Test New
+    form(name="test_new", action="/test_new", method="post")
+          input(type="text", name="new_username", class="form-control", placeholder="new_username")
+          input(type="text", name="new_userhash", class="form-control", placeholder="new_userhash")
+          input(type="submit", value="test_new", class="btn btn-primary")

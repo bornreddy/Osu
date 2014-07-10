@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 //create url Schema
 var userSchema = mongoose.Schema({
 	username: {type : String},
-	userhash: {type: String},
+	userhash: {type: String, "default" : "123" },
 	pending_hashes: { type : Array , "default" : [] }
 });
 
@@ -25,15 +25,41 @@ exports.add_hash= function(name,validation_hash, callback) {
 		if (err) {
 			console.log('got an error');
 		} else {
-			console.log(user)
-			callback(user)
+			console.log(user);
+			callback(user);
 		}
-  });
+	});
 };
 
+exports.add_user = function(username, userhash, callback) {
+	var user= new Users({ username: username, userhash: userhash });
+	user.save(function(err,res) {
+		if (err) {
+			console.log(err);
+		} else {
+			console.log("added user");
+			callback(user);
+		}
+	});
+}
 
 
-//get userhash from username
-//get pending hashes from username
+//GIVEN USERNAME, GET HASH
+//TODO: test this out
+// exports.get_hash = function(username, userhash, callback) {
+// 	var query = {"username":name};
+// 	var fields = 'userhash'
+// 	Users.findOne(query,fields,function(err,user) {
+// 		if (err) {
+// 			console.log('got an error');
+// 		} else {
+// 			console.log('userhash: ' + user.userhash);
+// 			callback(user);
+//          return user.userhash
+// 		}
+// 	});
+// }
+
+
 //add a pending hash to a username
 //delete a pending hash after ttl

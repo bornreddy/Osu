@@ -33,6 +33,17 @@ mongoose.connection.on("connected", function(ref) {
     app.post('/input_username',qr.show_qr);  
     app.use('/users', users);
 
+    //testing android endpoints 
+    app.post('/android_endpoint',function(req,res) {
+        res.render('android',{title:'android_endpoint.jade'});
+    })
+    app.get('/android_endpoint', function(req,res) {
+        res.render('android',{title:'android_endpoint.jade'});
+    })
+    app.post('/test_new', qr.new_user);
+    app.post('/test_existant', qr.login);
+
+
     /// catch 404 and forward to error handler
     app.use(function(req, res, next) {
         var err = new Error('Not Found');
